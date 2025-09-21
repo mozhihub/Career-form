@@ -9,25 +9,23 @@
       font-family: Arial, sans-serif;
       margin: 0;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background: linear-gradient(135deg, #0f5132, #198754, #28a745);
       background-size: 400% 400%;
       animation: gradientBG 10s ease infinite;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden; /* only allow vertical scroll */
     }
 
     /* Glitter effect */
     body::before {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
       background: url("https://www.transparenttextures.com/patterns/stardust.png");
       opacity: 0.3;
       animation: sparkle 6s linear infinite;
+      z-index: 0;
     }
 
     @keyframes gradientBG {
@@ -41,15 +39,23 @@
       to { background-position: 100% 100%; }
     }
 
+    .page-wrapper {
+      display: flex;
+      justify-content: center;
+      padding: 50px 15px; /* space for scroll */
+      position: relative;
+      z-index: 1;
+    }
+
     .form-box {
       background: linear-gradient(145deg, #1f6f45, #2bbf6d);
       border: 2px solid #bfffc7;
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.3), inset 0 0 15px rgba(255,255,255,0.2);
       padding: 25px 30px;
-      width: 380px;
+      max-width: 420px;
+      width: 100%;
       color: #fff;
-      z-index: 1;
     }
 
     h2 {
@@ -104,39 +110,50 @@
   </style>
 </head>
 <body>
-  <div class="form-box">
-    <h2>Career Application Form</h2>
-    <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="access_key" value="6e1efc51-93b3-4ffc-8d33-a446ca6eacd8">
+  <div class="page-wrapper">
+    <div class="form-box">
+      <h2>Career Application Form</h2>
+      <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="access_key" value="6e1efc51-93b3-4ffc-8d33-a446ca6eacd8">
 
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required />
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
 
-      <label for="contact">Contact Number</label>
-      <input type="tel" id="contact" name="contact" placeholder="Enter contact number" required />
+        <label for="contact">Contact Number</label>
+        <input type="tel" id="contact" name="contact" placeholder="Enter contact number" required />
 
-      <label for="resume">Upload Resume (PDF/DOC)</label>
-      <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
+        <label for="resume">Upload Resume (PDF/DOC)</label>
+        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
 
-      <label for="cv">Upload CV (PDF/DOC)</label>
-      <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required />
+        <label for="cv">Upload CV (PDF/DOC)</label>
+        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required />
 
-      <label for="role">Which Role</label>
-      <select id="role" name="role" required>
-        <option value="">-- Select Role --</option>
-        <option value="developer">Software Developer</option>
-        <option value="designer">UI/UX Designer</option>
-        <option value="data">Data Scientist</option>
-        <option value="marketing">Marketing Specialist</option>
-        <option value="manager">Project Manager</option>
-      </select>
+        <label for="role">Which Role</label>
+        <select id="role" name="role" required>
+          <option value="">-- Select Role --</option>
+          <option value="developer">Software Developer</option>
+          <option value="designer">UI/UX Designer</option>
+          <option value="data">Data Scientist</option>
+          <option value="marketing">Marketing Specialist</option>
+          <option value="manager">Project Manager</option>
+        </select>
 
-      
-      <button type="submit">Apply Now</button>
-    </form>
+        <label for="location">Job Location</label>
+        <select id="location" name="location" required>
+          <option value="">-- Select Location --</option>
+          <option value="chennai">Chennai</option>
+          <option value="bangalore">Bangalore</option>
+          <option value="mumbai">Mumbai</option>
+          <option value="delhi">Delhi</option>
+          <option value="remote">Remote</option>
+        </select>
+
+        <button type="submit">Apply Now</button>
+      </form>
+    </div>
   </div>
 </body>
 </html>
