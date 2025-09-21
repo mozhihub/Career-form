@@ -114,45 +114,59 @@
     <div class="form-box">
       <h2>Career Application Form</h2>
       <form action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="6e1efc51-93b3-4ffc-8d33-a446ca6eacd8">
-                             
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name" required />
+                    <div class="controls">
+                        <br />
+                        <div class="row">
+                            <div class="col-12 col-md-6 form-group">
+                                <input type="hidden" name="access_key" value="6e1efc51-93b3-4ffc-8d33-a446ca6eacd8">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name*"
+                                    required />
+                            </div>
+                            <div class="col-12 col-md-6 form-group">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="Email Address*" required />
+                            </div>
+                        </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                        <div class="row">
+                            <div class="col-12 col-md-6 form-group">
+                                <input type="number" class="form-control" name="contactNum" id="contactNum"
+                                    placeholder="Contact Number*" required />
+                            </div>
+                            <div class="col-12 col-md-6 form-group">
+                                <select name="jobVacancy" id="jobVacancy" class="form-select"
+                                    aria-label="Default select example" required>
+                                    <option value="" selected>Choose Job Vacancy</option>
+                                    <option value="sqa">Software Quality Assurance</option>
+                                    <option value="webDev">Web Developer</option>
+                                    <option value="it">IT Engineer</option>
+                                </select>
+                            </div>
+                        </div>
 
-        <label for="contact">Contact Number</label>
-        <input type="tel" id="contact" name="contact" placeholder="Enter contact number" required />
-
-        <label for="resume">Upload Resume (PDF/DOC)</label>
-        <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" required />
-
-        <label for="cv">Upload CV (PDF/DOC)</label>
-        <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required />
-
-        <label for="role">Which Role</label>
-        <select id="role" name="role" required>
-          <option value="">-- Select Role --</option>
-          <option value="developer">Software Developer</option>
-          <option value="designer">UI/UX Designer</option>
-          <option value="data">Data Scientist</option>
-          <option value="marketing">Marketing Specialist</option>
-          <option value="manager">Project Manager</option>
-        </select>
-
-        <label for="location">Job Location</label>
-        <select id="location" name="location" required>
-          <option value="">-- Select Location --</option>
-          <option value="chennai">Chennai</option>
-          <option value="bangalore">Bangalore</option>
-          <option value="mumbai">Mumbai</option>
-          <option value="delhi">Delhi</option>
-          <option value="remote">Remote</option>
-        </select>
-
-        <button type="submit">Apply Now</button>
-      </form>
+                        <div class="row">
+                            <div class="col-12 col-md-6 form-group">
+                                <select name="jobLocation" id="jobLocation" class="form-select"
+                                    aria-label="Default select example" required>
+                                    <option value="" selected>Choose Job Location</option>
+                                    <option value="Jeddah">Jeddah, Saudi Arabia</option>
+                                    <option value="Karachi">Karachi, Pakistan</option>
+                                    <option value="XYZ">XYZ, United Kingdom</option>
+                                </select>
+                            </div>
+                            <div class="col-12 col-md-6 form-group">
+                                <input type="file" class="form-control" name="cvResume" id="cvResume" accept=".doc,.docx,.pdf" required />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-send" id="jobApplyBtn">
+                                Apply
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                <br /><br />
     </div>
   </div>
 </body>
